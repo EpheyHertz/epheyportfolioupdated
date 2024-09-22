@@ -192,7 +192,7 @@ export const navItems = [
     // },
     {
       id: 2,
-      title: "Prompt Engineer - Doctor AI chatboot",
+      title: "Prompt Engineer - Doctor AI chatbot",
       desc: "Designed and developed a chatbot for Doctor AI Application using Gemini and Django RestFramework .",
       className: "md:col-span-2", // change to md:col-span-2
       thumbnail: "/exp2.svg",
