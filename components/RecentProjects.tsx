@@ -1,6 +1,7 @@
 'use client'
 import { projects } from '@/data'
 import { div } from 'three/webgpu'
+import axios from "axios"
 
 import React, { useEffect, useState } from 'react';
 import PinContainer from './ui/3D-Pin';
@@ -14,10 +15,8 @@ const RecentProjects = () => {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const res = await fetch("https://epheyhertzportfoliobackend.onrender.com/apis/projects/");
-        const projectData = await res.json();
-        setProjects(projectData);
-        
+        const res = await axios.get("https://epheyhertzportfoliobackend.onrender.com/apis/projects/");
+        setProjects(res.data); // res.data contains the response data
       } catch (error) {
         console.error("Error fetching project data:", error);
       }

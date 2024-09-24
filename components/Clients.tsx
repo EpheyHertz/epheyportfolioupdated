@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { InfiniteMovingCards } from './ui/InfiniteCard';
+import axios from "axios"
 import { companies } from '@/data'; // Assuming companies are still static
 
 const Clients = () => {
@@ -11,8 +12,8 @@ const Clients = () => {
   useEffect(() => {
     const fetchTestimonials = async () => {
       try {
-        const res = await fetch("https://epheyhertzportfoliobackend.onrender.com/apis/testimonials/");
-        const testimonialData = await res.json();
+        const res = await axios.get("https://epheyhertzportfoliobackend.onrender.com/apis/testimonials/");
+        const testimonialData = await res.data;
         setTestimonials(testimonialData); // Adjust this based on your response format
       } catch (error) {
         console.error("Error fetching testimonial data:", error);
