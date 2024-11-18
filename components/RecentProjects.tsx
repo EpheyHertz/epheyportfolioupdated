@@ -15,7 +15,7 @@ const RecentProjects = () => {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const res = await axios.get("https://epheyhertzportfoliobackend.onrender.com/apis/projects/");
+        const res = await axios.get("https://epheyportfoliobackend.onrender.com/portfolio/projects/");
         setProjects(res.data); // res.data contains the response data
       } catch (error) {
         console.error("Error fetching project data:", error);
@@ -32,7 +32,7 @@ const RecentProjects = () => {
         <span className='text-purple'>Recent Projects</span>
       </h1>
       <div className='flex flex-wrap items-center justify-center p-4 gap-x-24 gap-y-8 mt-10'>            
-        {projects.length > 0 ? (projects.map(({ id, title, description, image_url, technologies=[], link,demolink }) => (
+        {projects.length > 0 ? (projects.map(({ id, title, description, image, technologies=[], link,demolink }) => (
           <div key={id} className='sm:h-[41rem] h-[32rem] lg:min-h-[32.5rem] sm:w-[570px] flex items-center justify-center  w-[80vw] lg:h-[30vh] mb-10'>
             <PinContainer title={link} href={link}>
               <div className='relative flex items-center justify-center sm:w-[570px] w-[80vw] sm:h-[40vh] overflow-hidden h-[30vh]'>
@@ -40,7 +40,7 @@ const RecentProjects = () => {
                   <img src="/bg.png" alt="bg-img" />
                 </div>
                 <img
-                  src={image_url}
+                  src={image}
                   alt={title}
                   className='z-10 absolute bottom-0'
                 />

@@ -12,7 +12,7 @@ const Clients = () => {
   useEffect(() => {
     const fetchTestimonials = async () => {
       try {
-        const res = await axios.get("https://epheyhertzportfoliobackend.onrender.com/apis/testimonials/");
+        const res = await axios.get("https://epheyportfoliobackend.onrender.com/portfolio/reviews/");
         const testimonialData = await res.data;
         setTestimonials(testimonialData); // Adjust this based on your response format
       } catch (error) {
